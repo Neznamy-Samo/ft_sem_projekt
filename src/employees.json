@@ -3,61 +3,61 @@
     {
       "id": 1,
       "name": "Samuel Kaščák",
-      "job_title": "Zakladateľ",
+      "title": "Zakladateľ",
       "image":"samuel_kascak.jpg"
     },
     {
       "id": 2,
       "name": "Helena Pravdová",
-      "job_title": "Spoluzakladateľka",
+      "title": "Spoluzakladateľka",
       "image":"helena_pravdova.jpg"
     },
     {
       "id": 3,
       "name": "Martin Golfový",
-      "job_title": "Generálny manažér",
+      "title": "Generálny manažér",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 4,
       "name": "Veronika Rúžová",
-      "job_title": "Hlavná trénerka",
+      "title": "Hlavná trénerka",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 5,
       "name": "Juraj Záhradník",
-      "job_title": "Finančný riaditeľ",
+      "title": "Finančný riaditeľ",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 6,
       "name": "Eva Mišenková",
-      "job_title": "Event manažérka",
+      "title": "Event manažérka",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 7,
       "name": "Peter Zeler",
-      "job_title": "Golfový architekt",
+      "title": "Golfový architekt",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 8,
       "name": "Zuzana Nováková",
-      "job_title": "Marketingová specialistka",
+      "title": "Marketingová specialistka",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 9,
       "name": "Lukáš Greenfield",
-      "job_title": "Technický riaditeľ",
+      "title": "Technický riaditeľ",
       "image": "samuel_kascak.jpg"
     },
     {
       "id": 10,
       "name": "Adriana Sandtrap",
-      "job_title": "Recepcná",
+      "title": "Recepcná",
       "image": "samuel_kascak.jpg"
     }
   ]

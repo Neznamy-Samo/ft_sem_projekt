@@ -14,11 +14,11 @@
   <div class="col-lg-3 col-md-6 col-12">
     <div v-for="employee in employees" :key="employee.id" class="member-block">
       <div class="member-block-image-wrap">
-        <img src="/images/members/helena_pravdova.jpg" class="member-block-image img-fluid" alt="">
+        <img :src="'/images/members/' + employee.image" class="member-block-image img-fluid" alt="">
       </div>
       <div class="member-block-info d-flex align-items-center">
         <h4>{{employee.name}}</h4>
-        <p class="ms-auto">{{employee.job_title}}</p>
+        <p class="ms-auto">{{employee.title}}</p>
       </div>
     </div>
   </div>
