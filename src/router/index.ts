@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/event-listing',
       name: 'event-listing',
-      component: () => import('../views/Event_listing.vue')
+      component: () => import('../views/Event_listingView.vue')
     },
     {
       path: '/event-detail',
       name: 'event-detail',
-      component: () => import('../views/Event_detail.vue')
+      component: () => import('../views/Event_detailView.vue')
     }
   ]
 })
