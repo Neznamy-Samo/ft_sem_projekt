@@ -1,4 +1,5 @@
 <template>
+
   <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
     <div class="member-block">
       <div class="member-block-image-wrap">
@@ -22,6 +23,7 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
 import DataEmployees from '../employees.json';
