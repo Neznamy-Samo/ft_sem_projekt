@@ -32,6 +32,7 @@ https://templatemo.com/tm-587-tiya-golf-club
   --p-font-size:                  18px;
   --menu-font-size:               16px;
   --btn-font-size:                14px;
+  --copyright-font-size:          16px;
 
   --border-radius-large:          100px;
   --border-radius-medium:         20px;
@@ -41,10 +42,14 @@ https://templatemo.com/tm-587-tiya-golf-club
   --font-weight-medium:           500;
   --font-weight-bold:             700;
 }
-
+* {
+  margin:0;
+  padding: 0;
+}
 body {
   background-color: var(--white-color);
-  font-family: var(--body-font-family); 
+  font-family: var(--body-font-family);
+
 }
 
 
@@ -412,6 +417,10 @@ strong {
 /*---------------------------------------
   NAVIGATION BAR & OFFCANVAS              
 -----------------------------------------*/
+
+
+
+
 .offcanvas {
   background-color: var(--primary-color);
   padding: 30px;
@@ -445,6 +454,20 @@ strong {
 
 .sticky-wrapper.is-sticky .navbar {
   background-color: rgb(61 64 91);
+}
+
+#navigation{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  padding: 30px;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  z-index:100;
 }
 
 .navbar {
@@ -482,6 +505,7 @@ strong {
   margin-left: 10px;
   position: relative;
   bottom: 5px;
+
 }
 
 .navbar-brand-text small {
@@ -496,8 +520,7 @@ strong {
   margin: 10px;
   padding: 10px;
 }
-
-.navbar-nav .nav-link {
+.nav-link {
   display: inline-block;
   color: var(--white-color);
   font-size: var(--menu-font-size);
@@ -506,7 +529,7 @@ strong {
   padding-bottom: 15px;
 }
 
-.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
   color: var(--link-hover-color);
 }
@@ -544,9 +567,9 @@ strong {
   position: relative;
 }
 
-.navbar .dropdown-item.active, 
+.navbar .dropdown-item.active,
 .navbar .dropdown-item:active,
-.navbar .dropdown-item:focus, 
+.navbar .dropdown-item:focus,
 .navbar .dropdown-item:hover {
   background: transparent;
   color: var(--link-hover-color);
@@ -649,7 +672,7 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
-  background-image: url('../images/anna-rosar-ZxFyVBHMK-c-unsplash.jpg');
+  background-image: url('public/images/anna-rosar-ZxFyVBHMK-c-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -701,7 +724,7 @@ strong {
   BACKGROUND IMAGE SECTION        
 -----------------------------------------*/
 .section-bg-image {
-  background-image: url('../images/frederik-rosar-NDSZcCfnsbY-unsplash.jpg');
+  background-image: url('public/images/frederik-rosar-NDSZcCfnsbY-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
