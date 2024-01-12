@@ -5,7 +5,8 @@
   <RouterView :key="$route.fullPath"/>
 </template>
 <script>
-import Navigation from "@/components/Navigation.vue";
+import Navigation from "@/components/TheNavigation.vue";
+
 export default {
   components: {Navigation}
 }

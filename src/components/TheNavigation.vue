@@ -17,7 +17,7 @@
       <div class="">
         <ul v-if="displayMenu" class="d-inline-flex  my-auto list list-unstyled" :class="{responsive: isResponsive}">
           <li class="me-3">
-            <a class="nav-link click-scroll " href="#section_1">Domov</a>
+            <a class="nav-link" href="#section_1">Domov</a>
           </li>
 
           <li class="me-3">
@@ -25,11 +25,11 @@
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_3">Predplatné</a>
+            <a class="nav-link" href="#section_3" >Predplatné</a>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_4">Podujatia</a>
+            <a class="nav-link" href="#section_4" >Podujatia</a>
           </li>
 
           <li class="me-3">
@@ -37,7 +37,7 @@
           </li>
 
           <li class="me-3">
-            <router-link to="/event-listing" class="nav-link">Ponuky udalostí</router-link>
+            <a class="nav-link">Ponuky udalostí</a>
           </li>
 
           <li class="me-3">
@@ -67,8 +67,9 @@ export default {
     },
     checkWindowSize() {
       this.displayHamburger = window.innerWidth <= 1225;
-      this.displayMenu = window.innerWidth >= 1225
+      this.displayMenu = window.innerWidth >= 1225;
     },
+
   },
   mounted() {
 
@@ -85,6 +86,10 @@ export default {
 /* Optionally hide the hamburger initially on larger screens */
 .hamburger {
   display: none;
+}
+
+.active{
+  color: black;
 }
 
 /* Show the hamburger when the screen is small enough */

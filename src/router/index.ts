@@ -9,6 +9,8 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+
+
     {
       path: '/event-listing',
       name: 'event-listing',
@@ -19,7 +21,9 @@ const router = createRouter({
       name: 'event-detail',
       component: () => import('../views/Event_detailView.vue')
     }
+
   ]
+
 })
 
 export default router
