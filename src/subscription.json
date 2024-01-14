@@ -1,0 +1,16 @@
+{
+  "subscription": [
+    {
+      "id": 1,
+      "date": 31,
+      "month": 2,
+      "year": 2024,
+      "image": "professional-golf-player.jpg",
+      "name": "Súťaž jednotlivca",
+      "description": "Príď sa ukázať a vyhraj cenu jednotlivca",
+      "location": "Valáliky",
+      "ticket": "$50"
+    }
+
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "date": 31,
+      "month": 2,
+      "year": 2024,
+      "image": "professional-golf-player.jpg",
+      "name": "Súťaž jednotlivca",
+      "description": "Príď sa ukázať a vyhraj cenu jednotlivca",
+      "location": "Valáliky",
+      "ticket": "$50"
+    },
+    {
+      "id": 2,
+      "date": 28,
+      "month": 1,
+      "year": 2024,
+      "image": "professional-golf-player.jpg",
+      "name": "Skupinová súťaž",
+      "description": "Poď a ukáž sa so svojím tímom",
+      "location": "Košice",
+      "ticket": "$200"
+    },
+    {
+      "id": 3,
+      "date": 31,
+      "month": 2,
+      "year": 2024,
+      "image": "professional-golf-player.jpg",
+      "name": "Liga o pohár",
+      "description": "Na lige sa zúčastnia sa 4 tímy. A to minuloroční Trnavčania ktorí sa stali víťazmi prvého kvalifikačného kola ligy, na 2. mieste sa vtedy umiestnil tím Golf Clubu Penati a na 3. mieste skončil tím Golf\nClubu Welten Tento rok sa to môže zmeniť a preto neváhajte a navštívte nás",
+      "location": "Tály",
+      "ticket": "$100"
+    },
+    {
+      "id": 4,
+      "date": 28,
+      "month": 2,
+      "year": 2024,
+      "image": "professional-golf-player.jpg",
+      "name": "Skús a vyhraj",
+      "description": "Chceš sa naučiť hrať golf? Myslíš si že na to máš? Tak sa zapoj do súťaže o najlepšieho nováčika vyhraj skvelé ceny.",
+      "location": "Bratislava",
+      "ticket": "$30"
+    }
+
+  ]
+}

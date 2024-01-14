@@ -106,7 +106,7 @@
           <h4 class="mb-4 pb-lg-2">Predplatné</h4>
 
           <div class="table-responsive">
-            <table class="table text-center">
+            <table class="table text-center table-striped">
               <thead>
               <tr>
                 <th style="width: 34%; background-color: #3D405B; color: white;">Typy predplatného</th>
@@ -253,105 +253,7 @@
       </div>
     </div>
   </section>
-  <section class="events-section section-bg section-padding" id="section_4">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-12 col-12">
-          <h2 class="mb-lg-3">Nastávajúce udalosti</h2>
-        </div>
-
-        <div class="row custom-block mb-3 custom-block-bg">
-          <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-            <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-              <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">31</h6>
-              <strong class="text-white">Marec 2024</strong>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-            <div class="custom-block-image-wrap">
-              <a href="event-detail.html">
-                <img src="/images/professional-golf-player.jpg" class="custom-block-image img-fluid" alt="">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-12 order-3 order-lg-0">
-            <div class="custom-block-info mt-2 mt-lg-0">
-              <a href="event-detail.html" class="events-title mb-3">Liga o pohár</a>
-
-              <p class="mb-0">Na lige sa zúčastnia sa 4 tímy. A to minuloroční Trnavčania ktorí sa stali víťazmi prvého kvalifikačného kola ligy, na 2. mieste sa vtedy umiestnil tím Golf Clubu Penati a na 3. mieste skončil tím Golf
-                Clubu Welten Tento rok sa to môže zmeniť a preto neváhajte a navštívte nás.</p>
-              <div class="d-flex flex-wrap border-top mt-4 pt-3">
-
-                <div class="mb-4 mb-lg-0">
-                  <div class="d-flex flex-wrap align-items-center mb-1">
-                    <span class="custom-block-span">Lokalita:</span>
-
-                    <p class="mb-0">Tály</p>
-                  </div>
-
-                  <div class="d-flex flex-wrap align-items-center">
-                    <span class="custom-block-span">Ticket:</span>
-
-                    <p class="mb-0">$100</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row custom-block custom-block-bg">
-          <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-            <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-              <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">28</h6>
-
-              <strong class="text-white">Marec 2024</strong>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-            <div class="custom-block-image-wrap">
-              <a href="event-detail.html">
-                <img src="/images/girl-taking-selfie-with-friends-golf-field.jpg" class="custom-block-image img-fluid" alt="">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-12 order-3 order-lg-0">
-            <div class="custom-block-info mt-2 mt-lg-0">
-              <a href="event-detail.html" class="events-title mb-3">
-                Skús a vyhraj</a>
-
-              <p class="mb-0">Chceš sa naučiť hrať golf? Myslíš si že na to máš? Tak sa zapoj do súťaže o najlepšieho nováčika vyhraj skvelé ceny.</p>
-
-              <div class="d-flex flex-wrap border-top mt-4 pt-3">
-
-                <div class="mb-4 mb-lg-0">
-                  <div class="d-flex flex-wrap align-items-center mb-1">
-                    <span class="custom-block-span">Lokácia:</span>
-
-                    <p class="mb-0">Bratislava</p>
-                  </div>
-
-                  <div class="d-flex flex-wrap align-items-center">
-                    <span class="custom-block-span">Ticket:</span>
-
-                    <p class="mb-0">$30</p>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  <IncomingEvents/>
   <ContactUs/>
   <FooterComponent/>
 
@@ -360,13 +262,14 @@
 import FooterComponent from "@/components/FooterComponent.vue";
 import DataEmployees from '../employees.json';
 import ContactUs from "@/components/ContactUs.vue";
+import IncomingEvents from "@/components/IncomingEvents.vue";
 export default {
   data(){
     return{
       employees: DataEmployees.employees
     }
   },
-  components: {ContactUs, FooterComponent}
+  components: {IncomingEvents, ContactUs, FooterComponent}
 }
 </script>
 
