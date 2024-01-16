@@ -17,27 +17,23 @@
       <div class="">
         <ul v-if="displayMenu" class="d-inline-flex  my-auto list list-unstyled" :class="{responsive: isResponsive}">
           <li class="me-3">
-            <a class="nav-link" href="#section_1">Domov</a>
+            <a class="nav-link" href="/">Domov</a>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_2">O nás</a>
+            <a class="nav-link" href="/#section_2">O nás</a>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_3" >Predplatné</a>
+            <a class="nav-link" href="/#section_3" >Predplatné</a>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_4" >Podujatia</a>
+            <a class="nav-link" href="/#section_4" >Podujatia</a>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="#section_5">Kontaktujte nás</a>
-          </li>
-
-          <li class="me-3">
-            <a class="nav-link">Ponuky udalostí</a>
+            <router-link to="/event-listing" class="nav-link">Ponuky udalostí</router-link>
           </li>
 
           <li class="me-3">
