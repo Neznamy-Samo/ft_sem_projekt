@@ -37,7 +37,7 @@
           </li>
 
           <li class="me-3">
-            <router-link to="/event-detail" class="nav-link">Najnovšia udalosť</router-link>
+            <router-link to="/news" class="nav-link">Novinky</router-link>
           </li>
         </ul>
         <button v-if="displayHamburger" class="hamburger btn btn-lg" @click="toggleMenu">
@@ -77,18 +77,11 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 
-/* Optionally hide the hamburger initially on larger screens */
 .hamburger {
   display: none;
 }
-
-.active{
-  color: black;
-}
-
-/* Show the hamburger when the screen is small enough */
 @media screen and (max-width: 1225px) {
   .hamburger {
     display: block;

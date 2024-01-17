@@ -3,7 +3,7 @@
     {
       "id": 1,
       "date": 31,
-      "month": 2,
+      "month": 1,
       "year": 2024,
       "image": "professional-golf-player.jpg",
       "name": "Súťaž jednotlivca",
@@ -24,7 +24,7 @@
     },
     {
       "id": 3,
-      "date": 31,
+      "date": 20,
       "month": 2,
       "year": 2024,
       "image": "professional-golf-player.jpg",

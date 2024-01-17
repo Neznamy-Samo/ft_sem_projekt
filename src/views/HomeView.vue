@@ -254,14 +254,12 @@
     </div>
   </section>
   <IncomingEvents/>
-  <ContactUs/>
-  <FooterComponent/>
+
 
   </template>
 <script>
-import FooterComponent from "@/components/FooterComponent.vue";
+
 import DataEmployees from '../employees.json';
-import ContactUs from "@/components/ContactUs.vue";
 import IncomingEvents from "@/components/IncomingEvents.vue";
 export default {
   data(){
@@ -269,10 +267,6 @@ export default {
       employees: DataEmployees.employees
     }
   },
-  components: {IncomingEvents, ContactUs, FooterComponent}
+  components: {IncomingEvents}
 }
 </script>
-
-<style>
-
-</style>

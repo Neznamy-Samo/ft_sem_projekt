@@ -12,7 +12,8 @@
   </section>
 
 
-  <section class="events-section section-padding" id="section_7">
+
+  <!--<section class="events-section section-padding" id="section_7">
     <div class="container">
       <div class="row">
 
@@ -89,16 +90,16 @@
 
       </div>
     </div>
-  </section>
+  </section>-->
   <IncomingEvents/>
-  <ContactUs/>
-  <FooterComponent/>
+
 </template>
 <script>
-import FooterComponent from "@/components/FooterComponent.vue";
-import ContactUs from "@/components/ContactUs.vue";
+
+
 import IncomingEvents from "@/components/IncomingEvents.vue";
+
 export default {
-  components: {IncomingEvents, FooterComponent,ContactUs}
+  components: {IncomingEvents}
 }
 </script>
