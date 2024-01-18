@@ -1,5 +1,5 @@
 <template>
-  <div v-for="event in filteredEvents" :key="event.id" class="row custom-block custom-block-bg mb-5">
+  <div v-for="event in filteredEventsOnLocation" :key="event.id" class="row custom-block custom-block-bg mb-5">
     <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
       <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
         <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">{{ event.date }}.</h6>
@@ -34,19 +34,19 @@
 </template>
 
 <script>
-import DataEvents from '../events.json'
+import {useLocationStore} from "@/stores/locationsStore";
 
 export default {
   data() {
     const currentDate = new Date();
     const nextMonth = (currentDate.getMonth() + 1) % 12 + 1; //nasledujuci mesiac
-    return {
-      Events: DataEvents.events,
-      selectedMonth: nextMonth
-    };
   },
   computed: {
-    filteredEvents() {
+    filteredEventsOnLocation() {
+      const locationStore = useLocationStore();
+      return locationStore.filteredEvents;
+    },
+    filteredEventsOnMonth() {
       return this.Events.filter(event => parseInt(event.month) === this.selectedMonth);
     }
   }
