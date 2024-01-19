@@ -18,14 +18,27 @@ export const useLocationStore = defineStore('chosenLocation', {
         }
     },
     actions: {
+        persistentState(){
+            localStorage.setItem('chosenLocation', JSON.stringify(this.$state));
+        },
+        restoreState(){
+            const storedState = localStorage.getItem('chosenLocation')
+            if(storedState){
+                Object.assign(this.$state,JSON.parse(storedState))
+            }
+        },
         addChosenLocation(location: string) {
             this.chosenLocations.push(location);
+            this.persistentState();
         },
         removeChosenLocation(location: string) {
             this.chosenLocations = this.chosenLocations.filter(l => l !== location);
+            this.persistentState();
         },
-        clearChosenLocation(location: string) {
+        clearChosenLocation() {
             this.chosenLocations = [];
-        }
+            this.persistentState();
+        },
+
     }
 });

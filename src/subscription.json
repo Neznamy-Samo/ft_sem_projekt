@@ -1,16 +1,10 @@
 {
-  "subscription": [
-    {
-      "id": 1,
-      "date": 31,
-      "month": 2,
-      "year": 2024,
-      "image": "professional-golf-player.jpg",
-      "name": "Súťaž jednotlivca",
-      "description": "Príď sa ukázať a vyhraj cenu jednotlivca",
-      "location": "Valáliky",
-      "ticket": "$50"
-    }
-
+  "subscriptions": [
+    { "id": 1, "name": "Poistenie","tier1": "check", "tier2": "check","tier3": "check" },
+    { "id": 2, "name": "Stravovanie","tier1": "check", "tier2": "check","tier3": "check" },
+    { "id": 3, "name": "Ubatovanie","tier1": "x","tier2": "check","tier3": "check"},
+    { "id": 4, "name": "Víkendove turnaje","tier1": "x","tier2": "check","tier3": "check" },
+    { "id": 5, "name": "Golfová škola","tier1": "x","tier2": "x","tier3": "check"},
+    { "id": 6, "name": "Neobmezdený prístup","tier1": "x","tier2": "x","tier3": "check" }
   ]
 }

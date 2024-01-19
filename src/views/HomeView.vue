@@ -104,121 +104,7 @@
 
         <div class="col-lg-6 col-12 mb-3 mb-lg-0">
           <h4 class="mb-4 pb-lg-2">Predplatné</h4>
-
-          <div class="table-responsive">
-            <table class="table text-center table-striped">
-              <thead>
-              <tr>
-                <th style="width: 34%; background-color: #3D405B; color: white;">Typy predplatného</th>
-
-                <th style="width: 22%; background-color: #3D405B; color: white;">TIER 1</th>
-
-                <th style="width: 22%; background-color: #3D405B; color: white;">TIER 2</th>
-
-                <th style="width: 22%; background-color: #3D405B; color: white;">TIER 3</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <tr>
-                <th scope="row" class="text-start">Poistenie</th>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row" class="text-start" style="background-color: #3D405B; color: white;">Stravovanie</th>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row" class="text-start">Ubytovanie</th>
-
-                <td>
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row" class="text-start" style="background-color: #3D405B; color: white;">Víkendové turnaje</th>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row" class="text-start">Golfová škola</th>
-
-                <td>
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td>
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row" class="text-start" style="background-color: #3D405B; color: white;">Neobmedzený prístup</th>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-x-circle-fill"></i>
-                </td>
-
-                <td style="background-color: #3D405B; color: white;">
-                  <i class="bi-check-circle-fill"></i>
-                </td>
-              </tr>
-
-              </tbody>
-            </table>
-          </div>
+     <SubscriptionFees/>
         </div>
 
         <div class="col-lg-5 col-12 mx-auto">
@@ -253,20 +139,26 @@
       </div>
     </div>
   </section>
+
   <IncomingEvents/>
 
 
   </template>
-<script>
 
-import DataEmployees from '../employees.json';
-import IncomingEvents from "@/components/IncomingEvents.vue";
-export default {
-  data(){
-    return{
-      employees: DataEmployees.employees
-    }
-  },
-  components: {IncomingEvents}
-}
+
+<script>
+  import DataEmployees from '../employees.json';
+  import IncomingEvents from "@/components/IncomingEvents.vue";
+  import SubscriptionFees from "@/components/SubscriptionFees.vue"
+
+  export default {
+  data() {
+  return {
+  employees: DataEmployees.employees,
+
+};
+},
+  components: { IncomingEvents, SubscriptionFees },
+
+};
 </script>
