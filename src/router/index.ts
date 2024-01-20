@@ -19,9 +19,25 @@ const router = createRouter({
       path: '/news',
       name: 'news',
       component: () => import('../views/NewsView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('../views/NotFoundView.vue'),
     }
 
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // Return desired position or a promise that resolves to a position
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    } else {
+      return { top: 0 };
+    }
+  },
 
 })
 

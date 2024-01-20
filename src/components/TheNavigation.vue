@@ -1,5 +1,5 @@
 <template>
-  <nav id="navigation">
+  <nav v-if="!isPageNotFoundShowed" id="navigation">
     <div class="container d-inline-flex justify-content-between align-items-center">
       <router-link to= "/" class="navbar-brand" style="color:white">
        <i class="fa-solid fa-golf-ball-tee me-2 fs-10"></i>
@@ -17,19 +17,19 @@
       <div class="">
         <ul v-if="displayMenu" class="d-inline-flex  my-auto list list-unstyled" :class="{responsive: isResponsive}">
           <li class="me-3">
-            <a class="nav-link" href="/">Domov</a>
+            <router-link class="nav-link" to="/">Domov</router-link>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="/#section_2">O nás</a>
+            <router-link class="nav-link" to="/#section_2">O nás</router-link>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="/#section_3" >Predplatné</a>
+            <router-link class="nav-link" to="/#section_3" >Predplatné</router-link>
           </li>
 
           <li class="me-3">
-            <a class="nav-link" href="/#section_4" >Podujatia</a>
+            <router-link class="nav-link" to="/#section_4" >Podujatia</router-link>
           </li>
 
           <li class="me-3">
@@ -48,13 +48,22 @@
   </nav>
 </template>
 <script>
+import {useComponentShowStore} from "@/stores/componentShowStore";
+
 export default {
   data() {
+    const componentShowStore = useComponentShowStore();
     return {
       isResponsive: false,
       displayHamburger: false,
       displayMenu: true,
+      componentShowStore
     };
+  },
+  computed: {
+    isPageNotFoundShowed(){
+      return this.componentShowStore.isShowedState
+    }
   },
   methods: {
     toggleMenu() {

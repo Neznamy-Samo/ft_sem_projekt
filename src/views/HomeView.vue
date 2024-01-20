@@ -23,9 +23,6 @@
         </div>
 
         <div class="col-lg-6 col-12">
-          <div class="ratio ratio-16x9">
-            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/MGNgbNGOzh8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-          </div>
         </div>
       </div>
     </div>
@@ -76,11 +73,11 @@
 
             <p>Nenechaj si újsť najnovšie novinky zadaj svoj email s nami budeš vždy napred!
             </p>
-            <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
+            <form class="custom-form mt-lg-4 mt-2" @submit.prevent="submitForm" >
               <div class="input-group input-group-lg">
                 <span class="input-group-text bi-envelope" id="basic-addon1"></span>
 
-                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Emailová adresa" required="">
+                <input v-model="email" type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Emailová adresa" required="">
 
                 <button type="submit" class="form-control">Odoberať</button>
               </div>
@@ -109,24 +106,24 @@
 
         <div class="col-lg-5 col-12 mx-auto">
           <h4 class="mb-4 pb-lg-2">Pridajte sa k nám</h4>
-          <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+          <form class="custom-form membership-form shadow-lg" @submit.prevent="submitFormBecomeMember">
             <div class="container">
               <h4 class="text-white mb-4">Stať sa členom</h4>
 
               <div class="form-floating">
-                <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Meno priezvisko" required="">
+                <input v-model="fullNameBecomeMember" type="text" name="full-name" id="full-name" class="form-control" placeholder="Meno priezvisko" required="">
 
                 <label for="floatingInput">Meno priezvisko</label>
               </div>
 
               <div class="form-floating">
-                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Emailová addresa" required="">
+                <input v-model="emailBecomeMember" type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Emailová addresa" required="">
 
                 <label for="floatingInput">Emailová addresa</label>
               </div>
 
               <div class="form-floating">
-                <textarea class="form-control" id="message" name="message" placeholder="Komentare"></textarea>
+                <textarea v-model="textBecomeMember" class="form-control" id="message" name="message" placeholder="Komentare"></textarea>
 
                 <label for="floatingTextarea"> Komentár</label>
               </div>
@@ -150,15 +147,53 @@
   import DataEmployees from '../employees.json';
   import IncomingEvents from "@/components/IncomingEvents.vue";
   import SubscriptionFees from "@/components/SubscriptionFees.vue"
+  import axios from 'axios';
 
   export default {
   data() {
   return {
-  employees: DataEmployees.employees,
+    email: '',
+    fullNameBecomeMember: '',
+    emailBecomeMember: '',
+    textBecomeMember: '',
+    employees: DataEmployees.employees,
 
 };
 },
   components: { IncomingEvents, SubscriptionFees },
 
-};
+
+ methods: {
+   submitFormBecomeMember() {
+     const formData = {
+       fullNameBecomeMember: this.fullNameBecomeMember,
+       emailBecomeMember: this.emailBecomeMember,
+       textBecomeMember: this.textBecomeMember,
+     };
+     axios.post('https://jsonplaceholder.typicode.com/posts',formData)
+         .then(response => {
+           console.log(response.data)
+         })
+         .catch(error =>{
+           console.error(error);
+         });
+     this.fullNameBecomeMember = '';
+     this.emailBecomeMember = '';
+     this.textBecomeMember = '';
+   },
+    submitForm() {
+      const formData = {
+        email: this.email,
+      };
+      axios.post('https://jsonplaceholder.typicode.com/posts',formData)
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error =>{
+        console.error(error);
+      });
+      this.email = '';
+    }
+  }
+  };
 </script>

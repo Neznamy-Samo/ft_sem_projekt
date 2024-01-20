@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 1,
-      "date": 31,
+      "date": 27,
       "month": 1,
       "year": 2024,
       "image": "professional-golf-player.jpg",
@@ -14,9 +14,9 @@
     {
       "id": 2,
       "date": 28,
-      "month": 2,
+      "month": 1,
       "year": 2024,
-      "image": "professional-golf-player.jpg",
+      "image": "scene-with-friends-golf-course.jpg",
       "name": "Skupinová súťaž",
       "description": "Poď a ukáž sa so svojím tímom",
       "location": "Košice",
@@ -24,10 +24,10 @@
     },
     {
       "id": 3,
-      "date": 20,
-      "month": 2,
+      "date": 29,
+      "month": 1,
       "year": 2024,
-      "image": "professional-golf-player.jpg",
+      "image": "golf-friends-shaking-hands-golf-field.jpg",
       "name": "Liga o pohár",
       "description": "Na lige sa zúčastnia sa 4 tímy. A to minuloroční Trnavčania ktorí sa stali víťazmi prvého kvalifikačného kola ligy, na 2. mieste sa vtedy umiestnil tím Golf Clubu Penati a na 3. mieste skončil tím Golf\nClubu Welten Tento rok sa to môže zmeniť a preto neváhajte a navštívte nás",
       "location": "Bratislava",
@@ -35,14 +35,38 @@
     },
     {
       "id": 4,
-      "date": 28,
+      "date": 5,
       "month": 2,
       "year": 2024,
-      "image": "professional-golf-player.jpg",
+      "image": "man_golf_player.jpg",
       "name": "Skús a vyhraj",
       "description": "Chceš sa naučiť hrať golf? Myslíš si že na to máš? Tak sa zapoj do súťaže o najlepšieho nováčika vyhraj skvelé ceny.",
       "location": "Bratislava",
       "ticket": "$30"
+    },
+
+    {
+      "id": 5,
+      "date": 10,
+      "month": 2,
+      "year": 2024,
+      "image": "side-view-man-playing-golf.jpg",
+      "name": "Golfová majstrovská výzva",
+      "description": "Chceš zdokonaliť svoje golferské zručnosti? Účasť sa na Golfovom majstrovskom výzve a súťaž o skvelé ceny. Nájdi svoj úder a buď najlepší!",
+      "location": "Košice",
+      "ticket": "$35"
+    },
+
+    {
+      "id": 6,
+      "date": 31,
+      "month": 2,
+      "year": 2024,
+      "image": "girl-taking-selfie-with-friends-golf-field.jpg",
+      "name": "Letný golfový zážitok",
+      "description": "Osviež sa na jarnom golfovom dni plnom slnka a zábavy. Zúčastni sa súťaže Letný golfový zážitok a vyhraj fantastické ceny. Tešíme sa na tvoju účasť!",
+      "location": "Košice",
+      "ticket": "$40"
     }
 
   ]
