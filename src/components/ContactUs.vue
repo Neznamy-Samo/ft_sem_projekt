@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section section-padding" id="section_5">
+  <section v-if="!isPageNotFoundShowed" class="contact-section section-padding" id="section_5">
     <div class="container">
       <div class="row">
 
@@ -67,13 +67,21 @@
 
 
 import axios from "axios";
+import {useComponentShowStore} from "@/stores/componentShowStore";
 export default {
   data() {
+    const componentShowStore = useComponentShowStore();
     return {
       fullName: '',
       email: '',
       message: '',
+      componentShowStore
     };
+  },
+  computed: {
+    isPageNotFoundShowed(){
+      return this.componentShowStore.isShowedState
+    }
   },
   methods: {
     submitFormContactUs() {

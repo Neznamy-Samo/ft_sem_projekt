@@ -8,8 +8,6 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/HomeView.vue')
     },
-
-
     {
       path: '/event-listing',
       name: 'event-listing',
@@ -25,10 +23,8 @@ const router = createRouter({
       name: 'NotFound',
       component: () => import('../views/NotFoundView.vue'),
     }
-
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Return desired position or a promise that resolves to a position
     if (to.hash) {
       return {
         el: to.hash,

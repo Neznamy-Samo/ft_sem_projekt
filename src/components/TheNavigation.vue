@@ -4,11 +4,8 @@
       <router-link to= "/" class="navbar-brand" style="color:white">
        <i class="fa-solid fa-golf-ball-tee me-2 fs-10"></i>
         <span class="fs-10">
-
-                            <small>Národný
-                              golfový
-                              klub</small>
-                        </span>
+          <small>Národný golfový klub</small>
+        </span>
       </router-link>
 
 
@@ -77,7 +74,6 @@ export default {
 
   },
   mounted() {
-
     this.checkWindowSize();
     window.addEventListener("resize", this.checkWindowSize);
   },
