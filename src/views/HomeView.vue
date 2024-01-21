@@ -137,33 +137,88 @@
     </div>
   </section>
 
-  <IncomingEvents/>
+  <section class="events-section section-bg section-padding" id="section_4">
+    <div class="container">
+      <div class="row">
 
+        <div class="col-lg-12 col-12">
+          <h2 class="mb-lg-3">Tento mesiac Vás čaká</h2>
+        </div>
+        <div>
+          <h3>Zvoľte si lokalitu:</h3>
+        </div>
+        <div class="location-buttons">
+          <button v-for="location in uniqueLocations" :key="location"
+                  @click="toggleFilter(location)"
+                  class="btn btn-outline-dark me-3 mt-2 mb-4"
+          >{{ location }}</button>
+        </div>
+
+        <div v-for="event in filteredEvents" :key="event.id" class="row custom-block custom-block-bg mb-5">
+          <EventCard :event="event" />
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   </template>
 
 
 <script>
+  import { useLocationStore } from "@/stores/locationsStore";
+  import DataEvents from '../events.json';
   import DataEmployees from '../employees.json';
-  import IncomingEvents from "@/components/IncomingEvents.vue";
   import SubscriptionFees from "@/components/SubscriptionFees.vue"
   import axios from 'axios';
+  import EventCard from "@/components/EventCard.vue";
 
   export default {
   data() {
+    const locationStore = useLocationStore();
   return {
+    thisMonth: (new Date().getMonth()) % 12 + 1,
+    locationStore,
     email: '',
     fullNameBecomeMember: '',
     emailBecomeMember: '',
     textBecomeMember: '',
     employees: DataEmployees.employees,
+    events: DataEvents.events
 
 };
 },
-  components: { IncomingEvents, SubscriptionFees },
+  components: {EventCard, SubscriptionFees },
+    computed: {
+      uniqueLocations() {
+        const uniqueLocationsSet = new Set();
 
+        this.events.forEach(event => {
+          uniqueLocationsSet.add(event.location);
+        });
 
+        return Array.from(uniqueLocationsSet);
+      },
+      filteredEvents() {
+        this.locationStore.restoreState();
+        const evts = this.locationStore.filteredEventsByLocation(this.events);
+
+        return evts.filter(event => {
+          const isChosenLocation = this.locationStore.chosenLocations.includes(event.location);
+          const isNextMonth = parseInt(event.month) === this.thisMonth;
+          return isChosenLocation && isNextMonth;
+        });
+      }
+    },
  methods: {
+   toggleFilter(location) {
+     if (this.locationStore.chosenLocations.includes(location)) {
+       if (this.locationStore.chosenLocations.length > 1)
+       this.locationStore.removeChosenLocation(location);
+     } else {
+       this.locationStore.addChosenLocation(location);
+     }
+   },
    submitFormBecomeMember() {
      const formData = {
        fullNameBecomeMember: this.fullNameBecomeMember,

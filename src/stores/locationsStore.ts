@@ -1,44 +1,47 @@
 import { defineStore } from "pinia";
-import eventsData from '../events.json';
 import type { event } from '@/interfaces/event';
 
 interface LocationState {
     chosenLocations: string[];
-    events: event[];
+    chosenMonths: number[];
 }
 
 export const useLocationStore = defineStore('chosenLocation', {
     state: (): LocationState => ({
-        chosenLocations: [],
-        events: eventsData.events as event[]  // Access the events property
+        chosenLocations: ['Bratislava'],
+        chosenMonths: [(new Date().getMonth()) % 12 + 1]
     }),
-    getters: {
-        filteredEvents(state) {
-            return state.events.filter(event => state.chosenLocations.includes(event.location));
-        }
-    },
     actions: {
-        persistentState(){
-            localStorage.setItem('chosenLocation', JSON.stringify(this.$state));
+        filteredEventsByLocation(events: event[]) {
+            return events.filter(event => this.$state.chosenLocations.includes(event.location));
+        },
+        filteredEventsByMonth(events: event[]) {
+            return events.filter(event => this.$state.chosenMonths.includes(event.month));
+        },
+        persistState(){
+            localStorage.setItem('userChoice', JSON.stringify(this.$state));
         },
         restoreState(){
-            const storedState = localStorage.getItem('chosenLocation')
+            const storedState = localStorage.getItem('userChoice')
             if(storedState){
                 Object.assign(this.$state,JSON.parse(storedState))
             }
         },
         addChosenLocation(location: string) {
             this.chosenLocations.push(location);
-            this.persistentState();
+            this.persistState();
         },
         removeChosenLocation(location: string) {
             this.chosenLocations = this.chosenLocations.filter(l => l !== location);
-            this.persistentState();
+            this.persistState();
         },
-        clearChosenLocation() {
-            this.chosenLocations = [];
-            this.persistentState();
+        addChosenMonth(month: number) {
+            this.chosenMonths.push(month);
+            this.persistState();
         },
-
+        removeChosenMonth(month: number) {
+            this.chosenMonths = this.chosenMonths.filter(l => l !== month);
+            this.persistState();
+        }
     }
 });

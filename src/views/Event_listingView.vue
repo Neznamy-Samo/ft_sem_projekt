@@ -11,95 +11,103 @@
     <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#ffffff" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z" stroke-width="0"></path></svg>
   </section>
 
-
-
-  <!--<section class="events-section section-padding" id="section_7">
-    <div class="container">
+  <section class="events-section section-bg section-padding">
+    <div class="container p-5">
       <div class="row">
 
         <div class="col-lg-12 col-12">
-          <h2 class="mb-lg-5 mb-4">Prebiehajúce udalosti</h2>
+          <h2 class="mb-lg-3">Ponuky udalostí</h2>
         </div>
 
-        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-          <div class="custom-block-image-wrap">
-            <a href="event-detail.html">
-              <img src="/images/anna-rosar-ew-olGvgCCs-unsplash.jpg" class="custom-block-image img-fluid" alt="">
-            </a>
-
-            <div class="custom-block-date-wrap">
-              <strong class="text-white">1 Feb 2023</strong>
-            </div>
-
-
-          </div>
-
-          <div class="custom-block-info">
-            <a href="event-detail.html" class="events-title mb-2">Súťaž jednotlivca</a>
-            <p class="mb-0">Príď sa ukázať a vyhraj cenu jednotlivca</p>
-            <div class="border-top mt-4 pt-3">
-              <div class="d-flex flex-wrap align-items-center mb-1">
-                <span class="custom-block-span">Location:</span>
-
-                <p class="mb-0">Valáliky</p>
-              </div>
-
-              <div class="d-flex flex-wrap align-items-center">
-                <span class="custom-block-span">Cena:</span>
-
-                <p class="mb-0">$50</p>
-              </div>
-            </div>
-          </div>
+        <div>
+          <h3>Lokalita:</h3>
+        </div>
+        <div class="location-buttons">
+          <button v-for="location in uniqueLocations" :key="location"
+                  @click="toggleFilterLocation(location)"
+                  class="btn btn-outline-dark me-3 mt-2 mb-4"
+          >{{ location }}</button>
         </div>
 
-        <div class="col-lg-6 col-12">
-          <div class="custom-block-image-wrap">
-            <a href="event-detail.html">
-              <img src="/images/frederik-rosar-NDSZcCfnsbY-unsplash.jpg" class="custom-block-image img-fluid" alt="">
-            </a>
-
-            <div class="custom-block-date-wrap">
-              <strong class="text-white">1 Feb 2023</strong>
-            </div>
-
-
-          </div>
-
-          <div class="custom-block-info">
-            <a href="event-detail.html" class="events-title mb-2">Skupinová súťaž</a>
-
-            <p class="mb-0">Poď a ukáž sa so svojím tímom</p>
+        <div>
+          <h3>Mesiac:</h3>
+        </div>
+        <div class="location-buttons">
+          <button v-for="i in remainingMonths" :key="i"
+                  @click="toggleFilterMonth(i)"
+                  class="btn btn-outline-dark me-3 mt-2 mb-4"
+          >{{ i }}</button>
+        </div>
 
 
-            <div class="border-top mt-4 pt-3">
-              <div class="d-flex flex-wrap align-items-center mb-1">
-                <span class="custom-block-span">Lokácia:</span>
-
-                <p class="mb-0">Košice</p>
-              </div>
-
-              <div class="d-flex flex-wrap align-items-center">
-                <span class="custom-block-span">Cena:</span>
-
-                <p class="mb-0">$200</p>
-              </div>
-            </div>
-          </div>
+        <div v-for="event in filteredEvents" :key="event.id" class="row custom-block custom-block-bg mb-5">
+          <EventCard :event="event" />
         </div>
 
       </div>
     </div>
-  </section>-->
-  <IncomingEvents/>
+  </section>
 
 </template>
 <script>
-
-
-import IncomingEvents from "@/components/IncomingEvents.vue";
-
+import { useLocationStore } from "@/stores/locationsStore";
+import DataEvents from '../events.json';
+import EventCard from "@/components/EventCard.vue";
 export default {
-  components: {IncomingEvents}
+  data() {
+    const locationStore = useLocationStore();
+
+    return {
+      thisMonth: (new Date().getMonth()) % 12 + 1,
+      locationStore,
+      events: DataEvents.events
+
+    };
+  },
+  components: {EventCard},
+  computed: {
+    uniqueLocations() {
+      const uniqueLocationsSet = new Set();
+
+      this.events.forEach(event => {
+        uniqueLocationsSet.add(event.location);
+      });
+
+      return Array.from(uniqueLocationsSet);
+    },
+    remainingMonths() {
+      const remainingMonthsArray = [];
+
+      for (let i = this.thisMonth; i <= 12; i++) {
+        remainingMonthsArray.push(i);
+      }
+
+      return remainingMonthsArray;
+    },
+    filteredEvents() {
+      this.locationStore.restoreState();
+      const evts = this.locationStore.filteredEventsByMonth(this.locationStore.filteredEventsByLocation(this.events));
+
+      return evts;
+    }
+  },
+  methods: {
+    toggleFilterLocation(location) {
+      if (this.locationStore.chosenLocations.includes(location)) {
+        if (this.locationStore.chosenLocations.length > 1)
+          this.locationStore.removeChosenLocation(location);
+      } else {
+        this.locationStore.addChosenLocation(location);
+      }
+    },
+    toggleFilterMonth(month) {
+      if (this.locationStore.chosenMonths.includes(month)) {
+        if (this.locationStore.chosenMonths.length > 1)
+          this.locationStore.removeChosenMonth(month);
+      } else {
+        this.locationStore.addChosenMonth(month);
+      }
+    },
+  }
 }
 </script>
