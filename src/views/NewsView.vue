@@ -109,8 +109,8 @@ export default {
   },
   computed: {
     latestEvents() {
-      const maxId = Math.max(...this.events.map((event) => event.id));
-      return this.events.filter((event) => event.id === maxId);
+      const maxIdEvent = this.events.reduce((max, event) => (event.id > max.id ? event : max), this.events[0]);
+      return [maxIdEvent];
     },
   },
   created() {

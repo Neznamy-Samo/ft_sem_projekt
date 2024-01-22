@@ -2,7 +2,7 @@
   <nav v-if="!isPageNotFoundShowed" id="navigation">
     <div class="container d-inline-flex justify-content-between align-items-center">
       <router-link to= "/" class="navbar-brand" style="color:white">
-       <i class="fa-solid fa-golf-ball-tee me-2 fs-10"></i>
+        <i class="fa-solid fa-golf-ball-tee me-2 fs-10"></i>
         <span class="fs-10">
           <small>Národný golfový klub</small>
         </span>
@@ -96,7 +96,7 @@ export default {
     flex-direction: column;
     position: absolute;
     width:100%;
-    top:100px;
+    top:70px;
     left: 0px;
     padding-top:20px;
     padding-bottom:20px;
